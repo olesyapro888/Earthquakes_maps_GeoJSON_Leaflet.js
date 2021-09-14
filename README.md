@@ -17,5 +17,5 @@ This project consists of three technical following analysis deliverables:
 
 use the JavaScript and the D3.js library. To retrieve the coordinates and magnitudes of the earthquakes from the GeoJSON data. To plot the data on a Mapbox map through an API request and create interactivity for the earthquake data by using the Leaflet library.
 
-The analysis was created using next software: JavaScript, GeoJSON, VScode, Mapbox of the Leaflet.js.
+The analysis was created using next software: VScode, JavaScript, Leaflet.js, GeoJSON, Mapbox.
 ## `Mapping_Earthquakes Analysis Summary`	
