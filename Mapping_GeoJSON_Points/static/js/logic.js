@@ -99,23 +99,29 @@ let sanFranAirport =
 // // call the addTo() function with our map object, map on our graymap object tile layer
 // streets.addTo(map);
 
-// Grabbing our GeoJSON data.
+// Grabbing our GeoJSON data with pointToLayer().
+// L.geoJson(sanFranAirport, {
+//   // We turn each feature into a marker on the map.
+//   pointToLayer: function(feature, latlng) {
+//     console.log(feature);
+//     return L.marker(latlng)
+//     .bindPopup("<h3>" + feature.properties.name + "</h3>" + "</h3>" + feature.properties.city + ", " + feature.properties.country + "</h3>")
+//   }
+// });
+
+// Grabbing our GeoJSON data with onEachFeature.
 L.geoJson(sanFranAirport, {
-  // We turn each feature into a marker on the map.
-  pointToLayer: function(feature, latlng) {
+   onEachFeature: function(feature, layer) {
     console.log(feature);
-    return L.marker(latlng)
-    .bindPopup("<h2>" + feature.properties.city + "</h2>")
-
-  }
-
+    layer.bindPopup("<h3>" + "Airport code"+ ": " +  feature.properties.faa + "</h3>"+"<h3>" + "-----------------------------"+  "</h3>"+ "<h3>"+ "Airport name"+ ": " + feature.properties.name + "</>");
+    }
 }).addTo(map);
 
 // We create the tile layer that will be the background of our map./streets-v11 dark-v10 satellite-streets-v11/
-let streets = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+let streets = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/tiles/{z}/{x}/{y}?access_token={accessToken}', {
 attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
-    id: 'mapbox/streets-v11',
+    id: 'mapbox/outdoors-v11',
     accessToken: API_KEY
 });
 
