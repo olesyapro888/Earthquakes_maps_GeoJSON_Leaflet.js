@@ -1,7 +1,8 @@
 // Add console.log to check to see if our code is working.
 console.log("working");
 // Create the map object with a center and zoom level.
-let map = L.map('mapid').setView([40.7, -94.5], 4);
+// let map = L.map('mapid').setView([40.7, -94.5], 4);
+let map = L.map('mapid').setView([30, 30], 2);
 
 // Create the map object with a center and zoom level. An alternative to using the setView() method is to modify each attribute in the map object using the curly braces notation as follows:
 // let map = L.map("mapid", {
@@ -33,3 +34,15 @@ attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap
 
 // Then we add our 'graymap' tile layer to the map.
 streets.addTo(map);
+
+// Accessing the airport GeoJSON URL
+// Having the tileLayer() method before accessing large datasets ensures that the map gets loaded before the data is added to it.
+
+let airportData = "https://raw.githubusercontent.com/itekkie/Mapping_Earthquakes/main/majorAirports.json";
+
+// Grabbing our GeoJSON data.
+d3.json(airportData).then(function(data) {
+    console.log(data);
+  // Creating a GeoJSON layer with the retrieved data.
+  L.geoJson(data).addTo(map);
+});
