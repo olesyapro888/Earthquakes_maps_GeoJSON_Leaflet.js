@@ -144,7 +144,7 @@ let baseMaps = {
 let map = L.map('mapid', {
     center: [44.0, -80.0],
     zoom: 2,
-    layers: [light]
+    layers: [light]   
 })
 
 // Pass our map layers into our layers control and add the layers control to the map.
@@ -153,18 +153,39 @@ L.control.layers(baseMaps).addTo(map);
 // Accessing the airport GeoJSON URL
 // Having the tileLayer() method before accessing large datasets ensures that the map gets loaded before the data is added to it.
 
-// "https://raw.githubusercontent.com/itekkie/Mapping_Earthquakes/main/majorAirports.json"
-let airportData = "https://raw.githubusercontent.com/itekkie/Mapping_Earthquakes/Mapping_GeoJSON_Points/majorAirports.json";
+// "https://raw.githubusercontent.com/itekkie/Mapping_Earthquakes/main/majorAirports.json" let airportData "https://raw.githubusercontent.com/itekkie/Mapping_Earthquakes/Mapping_GeoJSON_Points/majorAirports.json"
+ 
+let torontoData = "https://raw.githubusercontent.com/itekkie/Mapping_Earthquakes/main/torontoRoutes.json";
+
+// // Grabbing our GeoJSON data.
+// d3.json(airportData).then(function(data) {
+//     console.log(data);
+//   // Creating a GeoJSON layer with the retrieved data.
+// //   L.geoJson(data).addTo(map);
+// L.geoJson(data, {
+//     onEachFeature: function(feature, layer) {
+//      console.log(feature);
+//      layer.bindPopup("<h3>" + "Airport code"+ ":  " +  feature.properties.faa + "</h3>"+"<h3>" + "------------------------------------------"+  "</h3>"+ "<h3>"+ "Airport name"+ ":  " + feature.properties.name + "</>");
+//      }
+//  }).addTo(map);
+// });
+
+// To To make the code easier to read "Create a style for the lines".
+let myStyle = {
+  color: "#ffffa1",
+  weight: 2
+}
 
 // Grabbing our GeoJSON data.
-d3.json(airportData).then(function(data) {
-    console.log(data);
-  // Creating a GeoJSON layer with the retrieved data.
-//   L.geoJson(data).addTo(map);
+d3.json(torontoData).then(function(data) {
+  console.log(data);
+// Creating a GeoJSON layer with the retrieved data.
+// L.geoJson(data).addTo(map);
 L.geoJson(data, {
+    style: myStyle,
     onEachFeature: function(feature, layer) {
-     console.log(feature);
-     layer.bindPopup("<h3>" + "Airport code"+ ":  " +  feature.properties.faa + "</h3>"+"<h3>" + "------------------------------------------"+  "</h3>"+ "<h3>"+ "Airport name"+ ":  " + feature.properties.name + "</>");
+    //  console.log(feature);
+     layer.bindPopup("<h3>" + "Airline code: "+  feature.properties.airline + "</h3><hr><h3>" + "Destination:  " + feature.properties.dst + "</h3>");
      }
  }).addTo(map);
 });
