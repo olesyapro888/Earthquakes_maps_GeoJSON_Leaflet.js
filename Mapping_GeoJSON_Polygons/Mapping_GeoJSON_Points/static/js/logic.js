@@ -86,14 +86,23 @@
 // });
 
 // // We create the tile layer that will be the background of our map.
-// let streets = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-//     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-//     maxZoom: 18,
-//     id: 'mapbox/streets-v11',
-//     tileSize: 512,
-//     zoomOffset: -1,
-//     accessToken: API_KEY
-// });
+let streets = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    // id: 'mapbox/streets-v11',
+    // tileSize: 512,
+    // zoomOffset: -1,
+    accessToken: API_KEY
+});
+
+let satelliteStreets = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+  attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+  maxZoom: 18,
+  // id: 'mapbox/streets-v11',
+  // tileSize: 512,
+  // zoomOffset: -1,
+  accessToken: API_KEY
+});
 // // Then we add our 'graymap' tile layer to the map.
 // // call the addTo() function with our map object, map on our graymap object tile layer
 // streets.addTo(map);
@@ -116,35 +125,35 @@
 //     }
 // }).addTo(map);
 
-// We create the tile layer that will be the background of our map.
-let light = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    accessToken: API_KEY
-});
+// // We create the tile layer that will be the background of our map.
+// let light = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+// attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
+//     maxZoom: 18,
+//     accessToken: API_KEY
+// });
 
 // Then we add our 'graymap' tile layer to the map.
 // streets.addTo(map);
 
-// We create the dark view tile layer that will be an option for our map.
-let dark = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/dark-v10/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    accessToken: API_KEY
-});
+// // We create the dark view tile layer that will be an option for our map.
+// let dark = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/dark-v10/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+// attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
+//     maxZoom: 18,
+//     accessToken: API_KEY
+// });
 
 // Create a base layer that holds both maps.
 let baseMaps = {
-    Street: light,
-    Dark: dark
+    "Streets": streets,
+    "Satellite Streets": satelliteStreets
   };
 
 // Create the map object with a center and zoom level.
 // Create the map object with center, zoom level and default layer.
 let map = L.map('mapid', {
-    center: [44.0, -80.0],
-    zoom: 2,
-    layers: [light]   
+    center: [43.7, -79.3],
+    zoom: 11,
+    layers: [satelliteStreets]   
 })
 
 // Pass our map layers into our layers control and add the layers control to the map.
@@ -155,12 +164,11 @@ L.control.layers(baseMaps).addTo(map);
 
 // "https://raw.githubusercontent.com/itekkie/Mapping_Earthquakes/main/majorAirports.json" let airportData "https://raw.githubusercontent.com/itekkie/Mapping_Earthquakes/Mapping_GeoJSON_Points/majorAirports.json"s
  
-let torontoData = "https://raw.githubusercontent.com/itekkie/Mapping_Earthquakes/main/torontoRoutes.json";
+// let torontoData = "https://raw.githubusercontent.com/itekkie/Mapping_Earthquakes/main/torontoRoutes.json";
 
-// // Accessing the Toronto neighborhoods GeoJSON URL.
-// let torontoHoods = "https://raw.githubusercontent.com/<GitHub_name>/Mapping_Earthquakes/main/torontoNeighborhoods.json";
+// Accessing the Toronto neighborhoods GeoJSON URL.
+let torontoHoods = "https://raw.githubusercontent.com/itekkie/Mapping_Earthquakes/main/torontoNeighborhoods.json";
 
-ss
 // // Grabbing our GeoJSON data.
 // d3.json(airportData).then(function(data) {
 //     console.log(data);
@@ -174,22 +182,22 @@ ss
 //  }).addTo(map);
 // });
 
-// To To make the code easier to read "Create a style for the lines".
-let myStyle = {
-  color: "#ffffa1",
-  weight: 2
-}
+// // To To make the code easier to read "Create a style for the lines".
+// let myStyle = {
+//   color: "#ffffa1",
+//   weight: 2
+// }
 
 // Grabbing our GeoJSON data.
 d3.json(torontoData).then(function(data) {
   console.log(data);
 // Creating a GeoJSON layer with the retrieved data.
-// L.geoJson(data).addTo(map);
-L.geoJson(data, {
-    style: myStyle,
-    onEachFeature: function(feature, layer) {
-    //  console.log(feature);
-     layer.bindPopup("<h3>" + "Airline code: "+  feature.properties.airline + "</h3><hr><h3>" + "Destination:  " + feature.properties.dst + "</h3>");
-     }
- }).addTo(map);
+L.geoJson(data).addTo(map);
+// L.geoJson(data, {
+//     // style: myStyle,
+//     onEachFeature: function(feature, layer) {
+//     //  console.log(feature);
+//      layer.bindPopup("<h3>" + "Airline code: "+  feature.properties.airline + "</h3><hr><h3>" + "Destination:  " + feature.properties.dst + "</h3>");
+//      }
+//  }).addTo(map);
 });
