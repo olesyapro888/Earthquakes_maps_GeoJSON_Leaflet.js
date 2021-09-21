@@ -184,7 +184,7 @@ let torontoHoods = "https://raw.githubusercontent.com/itekkie/Mapping_Earthquake
 
 // // To To make the code easier to read "Create a style for the lines".
 let myStyle = {
-  color: "#ffffa1",
+  color: "#1167b1",
   weight: 1
 }
 
