@@ -160,7 +160,6 @@ let torontoData = "https://raw.githubusercontent.com/itekkie/Mapping_Earthquakes
 // // Accessing the Toronto neighborhoods GeoJSON URL.
 // let torontoHoods = "https://raw.githubusercontent.com/<GitHub_name>/Mapping_Earthquakes/main/torontoNeighborhoods.json";
 
-ss
 // // Grabbing our GeoJSON data.
 // d3.json(airportData).then(function(data) {
 //     console.log(data);
