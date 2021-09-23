@@ -151,8 +151,8 @@ let baseMaps = {
 // Create the map object with a center and zoom level.
 // Create the map object with center, zoom level and default layer.
 let map = L.map('mapid', {
-    center: [43.7, -79.3],
-    zoom: 11,
+    center: [39.5, -98.5],
+    zoom: 3,
     layers: [streets]   
 })
 
@@ -166,8 +166,14 @@ L.control.layers(baseMaps).addTo(map);
  
 // let torontoData = "https://raw.githubusercontent.com/itekkie/Mapping_Earthquakes/main/torontoRoutes.json";
 
-// Accessing the Toronto neighborhoods GeoJSON URL.
-let torontoHoods = "https://raw.githubusercontent.com/itekkie/Mapping_Earthquakes/main/torontoNeighborhoods.json";
+// // Accessing the Toronto neighborhoods GeoJSON URL.
+// let torontoHoods = "https://raw.githubusercontent.com/itekkie/Mapping_Earthquakes/main/torontoNeighborhoods.json";
+
+// Retrieve the earthquake GeoJSON data.
+d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson").then(function(data) {
+  // Creating a GeoJSON layer with the retrieved data.
+  L.geoJson(data).addTo(map);
+});
 
 // // Grabbing our GeoJSON data.
 // d3.json(airportData).then(function(data) {
@@ -188,16 +194,16 @@ let myStyle = {
   weight: 1
 }
 
-// Grabbing our GeoJSON data.
-d3.json(torontoHoods).then(function(data) {
-  console.log(data);
-// Creating a GeoJSON layer with the retrieved data.
+// // Grabbing our GeoJSON data.
+// d3.json(torontoHoods).then(function(data) {
+//   console.log(data);
+// // Creating a GeoJSON layer with the retrieved data.
 // L.geoJson(data).addTo(map);
-L.geoJson(data, {
-    style: myStyle,
-    onEachFeature: function(feature, layer) {
-    //  console.log(feature);
-     layer.bindPopup("<h3>" + "Area code: "+  feature.properties.AREA_S_CD + "</h3><hr><h3>" + "Area name: "+  feature.properties.AREA_NAME + "</h3>");
-     }
- }).addTo(map);
-});
+// L.geoJson(data, {
+//     style: myStyle,
+//     onEachFeature: function(feature, layer) {
+//     //  console.log(feature);
+//      layer.bindPopup("<h3>" + "Area code: "+  feature.properties.AREA_S_CD + "</h3><hr><h3>" + "Area name: "+  feature.properties.AREA_NAME + "</h3>");
+//      }
+//  }).addTo(map);
+// });
