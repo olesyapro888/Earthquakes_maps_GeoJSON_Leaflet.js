@@ -21,12 +21,12 @@ The analysis was created by using next software: HTML 5, CSS 4, JavaScript, JS L
 Next tasks are completed: 
   - Tectonic Plate Data is added to the overlay object with the earthquake data, and the tectonic plate LineString data stands out on the map.
 
-  scree map Tectonic Plat
+![image](https://user-images.githubusercontent.com/68247343/134769240-86dd4119-203b-43df-9186-b2d2503557ad.png)
 
   - Major Earthquake Data ia added with three colors and the radius of the circle based on the magnitude of earthquake. Also, a popup marker with the magnitude and location is added.
 
-  screen major and pop up
+![image](https://user-images.githubusercontent.com/68247343/134769254-1ff6989c-1f44-41d0-8116-715709d16859.png)
 
-  -The third "Dark" map style is added to the Earthquake map.
+-The third "Dark" map style is added to the Earthquake map.
 
-  screen
+![image](https://user-images.githubusercontent.com/68247343/134769263-57c5019f-4e39-4fe1-b012-1ea53bdf895e.png)
