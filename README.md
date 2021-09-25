@@ -1,10 +1,10 @@
-# Mapping_Earthquakes. Project 13 of the UofT.
+# Mapping Earthquakes. Project 13 of the UofT.
 ## `-Contents-`	
 	
-- [Overview of the Project](#overview-of-the-Mapping_Earthquake-Analysis)
+- [Overview of the Project](#Overview-of-the-Mapping-Earthquake)
 - [Resources](#resources)	
-- [Mapping_Earthquake Analysis Summary](#Mapping_Earthquake-Analysis-Summary)	
-## `Overview of the Mapping_Earthquake`	
+- [Mapping Earthquake Analysis Summary](#Mapping-Earthquake-Analysis-Summary)	
+## `Overview of the Mapping Earthquake`	
 	
 The purpose for the analysis is 
 to show the earthquake data in relation to the tectonic plates’ location on the earth, 
@@ -16,7 +16,7 @@ This assignment consists of three following technical analyses:
   3. Add a third "Dark" map style to the Earthquake map.
 ## `Resources`	
 The analysis was created by using next software: HTML 5, CSS 4, JavaScript, JS Libraries: Leaflet, D3.
-## `Mapping_Earthquake Analysis Summary`	
+## `Mapping Earthquake Analysis Summary`	
 
 Next tasks are completed: 
   - Tectonic Plate Data is added to the overlay object with the earthquake data, and the tectonic plate LineString data stands out on the map.
