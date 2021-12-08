@@ -8,7 +8,7 @@
 
 ## `Overview of the Mapping Earthquake`	
 	
-The purpose for the analysis is to show the earthquake data in relation to the tectonic plates’ location on the earth, and all the earthquakes with a magnitude greater than 4.5 on the map.
+The purpose of the analysis is to show the earthquake data in relation to the tectonic plates’ location on the earth, and all the earthquakes with a magnitude greater than 4.5 on the map.
 
 This assignment consists of three following technical analyses:
   1. Add Tectonic Plate Data to the overlay object with the earthquake data by using d3.json(), geoJSON() layer, and to set the tectonic plate LineString data to stand out on the map;
