@@ -1,4 +1,4 @@
-# Mapping Earthquakes. The project 13 of the University of Toronto.
+# Earthquake different maps in relathion to the tectonic plates' location with different magnitude conditions using JS, Leaflet.js, API, GeoJSON data.
 
 ## `-Contents-`	
 	
